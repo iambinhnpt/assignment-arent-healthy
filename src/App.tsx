@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Navbar from './components/Navbar'
+import { Routes, Route, Outlet, Link, BrowserRouter } from 'react-router-dom'
+
+import TopPage from './pages/TopPage'
+import Global from './styles/global'
+import Footer from './components/Footer'
+import ScrollButton from './components/ScrollButton'
+import Record from './pages/Record'
+import ColumnPage from './pages/Column'
+import Layout from './pages/Layout'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Global />
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<TopPage />} />
+          <Route path='record' element={<Record />} />
+          <Route path='column' element={<ColumnPage />} />
+
+          <Route path='*' element={<>404</>} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App

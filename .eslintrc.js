@@ -24,6 +24,7 @@ module.exports = {
     'spaced-comment': 'error',
     quotes: ['error', 'single'],
     'no-duplicate-imports': 'error',
+    "react/no-unescaped-entities": 0
   },
   settings: {
     'import/resolver': {
